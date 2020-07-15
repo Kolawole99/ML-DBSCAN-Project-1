@@ -9,6 +9,8 @@ import pandas as pd
 import numpy as np
 #%matplotlib inline #for jupyter notebooks
 
+
+
 #====================================DATA====================================
 
 #=============================Data object keys==========================
@@ -43,5 +45,18 @@ import numpy as np
 filename='weather-stations20140101-20141231.csv'
 #Read csv
 pdf = pd.read_csv(filename)
+df_sample = pdf.head(5)
+print(df_sample)
+
+
+
+#==============================DATA PREPARATION================================
+
+#=============================Cleaning the data==============================
+pdf = pdf[pd.notnull(pdf["Tm"])]
+pdf = pdf.reset_index(drop=True)
 pdf.head(5)
+
+
+#=============================DATA VIZUALIZATION===============================
 
